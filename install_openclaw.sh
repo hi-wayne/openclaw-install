@@ -254,7 +254,7 @@ fi
 echo "[5/5] 请输入模型与接入信息（仅云模型）..."
 read -r -p "模型名（例如 qwen3-max-2026-01-23）： " MODEL_ID
 read -r -p "显示名称（例如 Qwen3 Max）： " MODEL_NAME
-read -r -p "接入点（例如 https://airouter.ddmc-inc.com/api/v1）： " BASE_URL
+read -r -p "接入点（例如 https://api.openai.com/v1）： " BASE_URL
 read -r -p "API Token： " API_KEY
 read -r -p "Gateway 端口（默认 3000）： " GATEWAY_PORT
 GATEWAY_PORT="${GATEWAY_PORT:-3000}"
