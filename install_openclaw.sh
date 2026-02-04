@@ -251,12 +251,12 @@ else
 fi
 
 # ---- 6) 生成配置文件（按用户输入） ----
-echo "[5/5] 请输入模型与接入信息（仅云模型）..."
-read -r -p "模型名（例如 qwen3-max-2026-01-23）： " MODEL_ID
-read -r -p "显示名称（例如 Qwen3 Max）： " MODEL_NAME
-read -r -p "接入点（例如 https://api.openai.com/v1）： " BASE_URL
-read -r -p "API Token： " API_KEY
-read -r -p "Gateway 端口（默认 3000）： " GATEWAY_PORT
+echo "[5/5] 请输入模型接入信息（第三方/云模型）..."
+read -r -p "模型名（由模型供应商提供，例如 qwen3-max-2026-01-23）： " MODEL_ID
+read -r -p "显示名称（仅 OpenClaw 显示用，例如 Qwen3 Max）： " MODEL_NAME
+read -r -p "接入点 Base URL（模型服务地址，例如 https://api.openai.com/v1）： " BASE_URL
+read -r -p "API Token（模型服务的密钥）： " API_KEY
+read -r -p "Gateway 端口（OpenClaw 自身配置，默认 3000）： " GATEWAY_PORT
 GATEWAY_PORT="${GATEWAY_PORT:-3000}"
 read -r -p "Workspace 目录（默认 /data/openclaw-workspace）： " WORKSPACE_DIR
 WORKSPACE_DIR="${WORKSPACE_DIR:-/data/openclaw-workspace}"
