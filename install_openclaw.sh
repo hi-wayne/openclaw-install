@@ -258,6 +258,8 @@ read -r -p "接入点 Base URL（模型服务地址，例如 https://api.openai.
 read -r -p "API Token（模型服务的密钥）： " API_KEY
 read -r -p "Gateway 端口（OpenClaw 自身配置，默认 3000）： " GATEWAY_PORT
 GATEWAY_PORT="${GATEWAY_PORT:-3000}"
+read -r -p "Gateway Token（OpenClaw 访问口令，默认 abc）： " GATEWAY_TOKEN
+GATEWAY_TOKEN="${GATEWAY_TOKEN:-abc}"
 read -r -p "Workspace 目录（默认 /data/openclaw-workspace）： " WORKSPACE_DIR
 WORKSPACE_DIR="${WORKSPACE_DIR:-/data/openclaw-workspace}"
 
@@ -352,7 +354,7 @@ cat > "$CONFIG_FILE" <<EOF
     },
     "auth": {
       "mode": "token",
-      "token": "abc"
+      "token": "$GATEWAY_TOKEN"
     },
     "tailscale": {
       "mode": "off",
@@ -381,6 +383,7 @@ EOF
 
 echo "完成。配置文件路径：$CONFIG_FILE"
 echo "可用以下命令验证：openclaw status"
+echo "Web UI 访问需要使用该 Gateway Token 进行鉴权。"
 echo
 echo "提示：当前网关默认绑定 127.0.0.1（仅本机可访问），外部无法直接访问 Web UI。"
 echo "可选的三种访问方式："
